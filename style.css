@@ -6,6 +6,8 @@ html, body {
     overflow-x: hidden; /* Prevents the right-side white bar */
 }
 
+
+
 /* 1. Global Reset */
 * {
     margin: 0;
@@ -16,16 +18,32 @@ html, body {
 
 /* 2. Updated Navigation */
 .navbar {
+    position: fixed; /* Changed from sticky to fixed for better reliability */
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%; /* Using percentage for better scaling */
+    padding: 1rem 5%;
     background: var(--navbar-bg);
-    color: white;
-    position: sticky;
-    top: 0;
     z-index: 1000;
-    width: 100%;
+    color: white;
+}
+
+/* Hamburger Styling */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: 0.3s;
 }
 
 .nav-links {
@@ -43,9 +61,51 @@ html, body {
     font-weight: bold;
 }
 
+/* Base styling for nav links */
+.nav-links li a {
+    text-decoration: none;
+    color: #ffffff; /* White text */
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding: 8px 0;
+    display: inline-block; /* CRITICAL: Links must be inline-block */
+    transition: color 0.3s ease;
+    
+}
+
+/* The Animated Underline */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0; /* Changed to left for a simpler test */
+    background-color: darkorchid; /* Light Blue/Teal */
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover State */
+.nav-links li a:hover {
+    color: darkorchid;
+}
+
+.nav-links li a:hover::after {
+    width: 100%; /* Line grows to full width */
+}
+
+/* Mobile Specific: Slightly different animation for the vertical menu */
+@media (max-width: 768px) {
+    .nav-links li a {
+        font-size: 1.2rem;
+        display: inline-block; /* Helps with hit-area on mobile */
+    }
+}
+
 /* 3. Hero Section */
 .hero {
-    height: 80vh; /* Takes up 80% of the screen height */
+    height: 100vh; /* Takes up 80% of the screen height */
     background: linear-gradient(135deg, #2c3e50, #4ca1af);
     color: white;
     display: flex;
@@ -103,8 +163,18 @@ h2 {
 /* 6. Buttons */
 .btn {
     display: inline-block;
-    background: #e74c3c;
+    background: darkorchid;
     color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    display: inline-block;
+    background: white;
+    color: #2c3e50;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -116,6 +186,39 @@ h2 {
     border: 2px solid #2c3e50;
     color: #2c3e50;
 }
+
+.themebtn {
+    /* Reset default 3D browser styles */
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid white; /* Solid flat border */
+    background: transparent;
+    width:100px;
+    /* Layout */
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 5px; /* Slightly rounded corners for a modern 2D look */
+    cursor: pointer;
+    
+    /* Animation - color only, no movement */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Flat Hover - Color swap only */
+.themebtn:hover {
+    background-color: white;
+    color: #2c3e50;
+    /* No shadow, no transform = 100% 2D */
+}
+
+/* Remove the blue outline on click for a cleaner look */
+.themebtn:focus {
+    outline: none;
+}  
 
 /* 7. Footer */
 footer {
@@ -129,14 +232,50 @@ footer {
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column; /* Stacks logo on top of links */
-        padding: 15px;
-        gap: 10px;
+        
+    }
+
+    .hamburger {
+        display: flex;
     }
 
     .nav-links {
-        justify-content: center;
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 80%;
+        left: 0;
         width: 100%;
-        gap: 10px;
+        background-color: var(--navbar-bg);
+        
+        /* THE FIX: Prevents text scattering */
+        overflow: hidden; 
+        white-space: nowrap; 
+        
+        /* State when hidden */
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        
+        /* Smooth, synced transition */
+        transition: max-height 0.4s ease-in-out, 
+                    opacity 0.3s ease, 
+                    transform 0.4s ease-in-out, 
+                    visibility 0.4s;
+    }
+
+    .nav-links.active {
+        max-height: 400px; /* Adjust based on your total link height */
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        width: 100%; /* Ensures the link takes up the full width of the dropdown */
+        margin: 10px 0;
     }
 
     .hero-name {
@@ -147,6 +286,12 @@ footer {
     #theme-toggle {
         padding: 8px 12px;
         font-size: 0.8rem;
+        transition: transform 0.2s ease, background-color 0.3s ease;      
+    }
+
+    #theme-toggle:hover {
+    transform: scale(1.05); /* Slight grow effect */
+    opacity: 0.9;
     }
 }
 
@@ -291,6 +436,165 @@ section, header, footer {
         align-items: center;
         gap: 1rem;
     }
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--card-border);
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-details {
+    margin: 1.5rem 0;
+    text-align: left; /* Keeps text left-aligned for readability */
+}
+
+.social-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the whole block */
+    margin-top: 2rem;
+    padding: 15px;
+    background: rgba(var(--accent-rgb), 0.05); /* Optional: subtle highlight */
+    border-radius: 10px;
+}
+
+.social-wrapper2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the whole block */
+    padding: 0px;
+    background: rgba(var(--accent-rgb), 0.05); /* Optional: subtle highlight */
+    border-radius: 10px;
+}
+
+.social-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 25px;
+    justify-content: center; /* Centers the 3 icons horizontally */
+}
+
+.social-links a svg {
+    width: 30px;
+    height: 30px;
+    color:darkorchid;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-links a:hover svg {
+    transform: scale(1.2); /* Slight pop effect on hover */
+    color: var(--btn-bg);
+}
+
+.social-links2 {
+    display: flex;
+    gap: 25px;
+    justify-content: center; /* Centers the 3 icons horizontally */
+}
+
+.social-links2 a svg {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color:white;
+}
+
+.social-links2 a:hover svg {
+    transform: scale(1.2); /* Slight pop effect on hover */
+    color: darkorchid;
+}
+
+/* --- Hamburger Icon Styling --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center; /* Changed from space-between to help centering */
+    align-items: center;
+    width: 30px;
+    height: 30px; /* Square container for perfect geometry */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 28px; /* Slightly shorter than container for breathing room */
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+}
+
+/* --- Mobile Responsive (768px and below) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Show hamburger on mobile */
+        margin-left: auto; /* Pushes hamburger to the far right */
+    }
+
+    .navbar {
+        padding: 1rem 1.5rem;
+        flex-direction: row; /* Keep Logo and Hamburger on one line */
+        justify-content: space-between;
+    }
+
+    .nav-links li {
+        list-style: none;
+        margin: 0 15px;
+    }
+}
+
+
+.menu-toggle .bar:nth-child(1) { transform: translateY(-8px); }
+.menu-toggle .bar:nth-child(2) { transform: translateY(0); }
+.menu-toggle .bar:nth-child(3) { transform: translateY(8px); }
+/* --- Hamburger to X Animation --- */
+
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+
+/* 2. Middle bar: Disappear */
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(0px);
+}
+
+/* 3. Bottom bar: Rotate -45deg from the center */
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
 }
 
 /* Certification Grid Layout */
@@ -468,3 +772,4 @@ h2 {
 .tags span {
     transition: background-color 0.4s, color 0.4s;
 }
+
