@@ -9,13 +9,33 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">Julien.Dev</div>
-        <ul class="nav-links">
+                <div class="social-wrapper2">
+                    <div class="social-links2">
+                        <a href="https://www.linkedin.com/in/julien-ibalio" target="_blank" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://github.com/julienibalio" target="_blank" title="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://web.facebook.com/ibalio.julien" target="_blank" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                        </a>
+                    </div>
+                </div>
+        
+        <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="nav-links" id="nav-menu">
+            <li><button id="theme-toggle" class="themebtn">Night Mode</button></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#experience">Exp</a></li>
-            <li><a href="#projects">Work</a></li>
-            <li><a href="#certifications">Certs</a></li>
-            <li><button id="theme-toggle" style="border-radius: 20px; padding: 5px 15px;">🌙 Dark Mode</button></li>
+            <li><a href="#experience">Work Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certification & Seminars</a></li>
+            <li><a href="#contact">Contact Me</a></li>
         </ul>
     </nav>
 
@@ -27,11 +47,11 @@
         
         <p class="hero-intro">Hello, I'm</p>
         <h1 class="hero-name">Julien G. Ibalio</h1>
-        <p class="hero-tagline">Computer Engineer | Embedded Systems | C++, Python, & Java</p>
+        <p class="hero-tagline">Computer Engineer | Embedded Systems | Robotics | C++, Python, & Java</p>
         
         <div class="hero-buttons">
-            <a href="#projects" class="btn">View My Work</a>
-            <a href="resources/resume.pdf" target="_blank" class="btn btn-outline">Resume / CV</a>
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="resources/resume.pdf" target="_blank" class="btn btn-outline">Resume | CV</a>
         </div>
         </div>
     </header>
@@ -49,6 +69,7 @@
         </p>
         <div class="tags" style="text-align:center; margin-top:20px;">
             <span>Embedded Systems</span>
+            <span>Robotics</span>
             <span>Network Troubleshooting</span>
             <span>Java</span>
             <span>Python</span>
@@ -114,7 +135,7 @@
 
         <div class="card">
             <h3>ESP32 POWERED FLOOD ALERT SYSTEM</h3>
-            <p>An IoT-based emergency system using ESP32 to detect water levels and trigger alerts for disaster preparedness.</p>
+            <p>An IoT-based emergency system using ESP32 to detect water levels and trigger alerts (Emails, SMS, Calls) for disaster preparedness.</p>
             <div class="tags">
                 <span>ESP32</span>
                 <span>IoT</span>
@@ -127,10 +148,11 @@
 
         <div class="card">
             <h3>4 WHEEL ROBOT CAR WITH CLAW</h3>
-            <p>Mechanical design and programming of a multi-wheel robotic vehicle featuring an integrated claw for manipulation.</p>
+            <p>Mechanical design and programming of a 4-wheel robotic car featuring a servo claw controlled via Bluetooth.</p>
             <div class="tags">
                 <span>C++</span>
                 <span>Arduino</span>
+                <span>Robotics</span>
             </div>
             <div class="card-footer">
                 <a href="https://github.com/julienibalio/4wdrobotclaw" target="_blank" class="github-link">View Repository</a>
@@ -139,10 +161,11 @@
 
         <div class="card">
             <h3>2 WHEEL ROBOT CAR</h3>
-            <p>Compact robotics platform focusing on stable navigation and motor control logic.</p>
+            <p>Compact Bluetooth controlled robotic 2-wheel car platform focusing on stable navigation and motor control logic.</p>
             <div class="tags">
                 <span>C++</span>
                 <span>Arduino</span>
+                <span>Robotics</span>
             </div>
             <div class="card-footer">
                 <a href="https://github.com/julienibalio/2wheelrobot" target="_blank" class="github-link">View Repository</a>
@@ -160,7 +183,7 @@
             <div class="cert-icon"><div class="placeholder-icon">🛡️</div></div>
             <div class="cert-info">
                 <h3>Ethical Hacking Essentials</h3>
-                <p class="issuer">EC-Council Labs</p>
+                <p class="issuer">EC-Council Labs - Certification</p>
                 <p class="date">2025</p>
                 <a href="resources/ecc.pdf" target="_blank" class="btn-small">View PDF</a>
             </div>
@@ -170,7 +193,7 @@
             <div class="cert-icon"><div class="placeholder-icon">🤖</div></div>
             <div class="cert-info">
                 <h3>AI Ready ASEAN: Hour of Code</h3>
-                <p class="issuer">ASEAN Foundation</p>
+                <p class="issuer">ASEAN Foundation - Webinar</p>
                 <p class="date">2025</p>
                 <a href="resources/hourofcode.pdf" target="_blank" class="btn-small">View PDF</a>
             </div>
@@ -180,8 +203,8 @@
             <div class="cert-icon"><div class="placeholder-icon">🛡️</div></div>
             <div class="cert-info">
                 <h3>WAF-Are You Waiting For?</h3>
-                <p class="issuer">CyberPH</p>
-                <p class="date">Sept 12, 2025</p>
+                <p class="issuer">CyberPH - Webinar</p>
+                <p class="date">2025</p>
                 <a href="resources/waf.pdf" target="_blank" class="btn-small">View PDF</a>
             </div>
         </div>
@@ -190,7 +213,7 @@
             <div class="cert-icon"><div class="placeholder-icon">☁️</div></div>
             <div class="cert-info">
                 <h3>IAM: Identity & Access Mgmt</h3>
-                <p class="issuer">CyberPH</p>
+                <p class="issuer">CyberPH - Webinar</p>
                 <p class="date">2025</p>
                 <a href="resources/iamwhatiam.pdf" target="_blank" class="btn-small">View PDF</a>
             </div>
@@ -200,7 +223,7 @@
             <div class="cert-icon"><div class="placeholder-icon">🌉</div></div>
             <div class="cert-info">
                 <h3>Bridge Construction Simulator</h3>
-                <p class="issuer">Computer Engineering Students' Society</p>
+                <p class="issuer">Computer Engineering Students' Society - Seminar</p>
                 <p class="date">2025</p>
                 <a href="resources/beyondbridge.pdf" target="_blank" class="btn-small">View PDF</a>
             </div>
@@ -210,7 +233,7 @@
             <div class="cert-icon"><div class="placeholder-icon">📋</div></div>
             <div class="cert-info">
                 <h3>Governance, Risk & Compliance</h3>
-                <p class="issuer">CyberPH</p>
+                <p class="issuer">CyberPH - Seminar</p>
                 <p class="date">2025</p>
                 <a href="resources/beyondthechecklist.pdf" target="_blank" class="btn-small">View PDF</a>
             </div>
@@ -219,19 +242,70 @@
         </div>
     </section>
 
-    <footer id="contact">
+    <section id="contact" class="container">
         <h2>Contact Me</h2>
-        <p>Open for opportunities in Embedded Systems and Software Development.</p>
-        <div style="margin-top: 1rem;">
-            <p>📧 ibalio.julien@gmail.com</p>
-            <p>📱 +63 945 993 3045</p>
-            <p>📍 Quezon City, Metro Manila</p>
-        </div>
-        <br>
-        <p>&copy; 2026 Julien G. Ibalio. Built with HTML & CSS.</p>
-    </footer>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>Open for opportunities in Embedded Systems and Software Development.</p>
+                <div class="contact-details">
+                    <p><strong>Email:</strong> ibalio.julien@gmail.com</p>
+                    <p><strong>Phone:</strong> +63 945 993 3045</p>
+                    <p><strong>Location:</strong> Quezon City, Metro Manila</p>
+                </div>
 
+                <div class="social-wrapper">
+                    <span class="social-label">Connect with me:</span>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/julien-ibalio" target="_blank" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://github.com/julienibalio" target="_blank" title="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://web.facebook.com/ibalio.julien" target="_blank" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <form id="contact-form" class="contact-form">
+                <input type="text" name="user_name" placeholder="Your Name" required>
+                <input type="email" name="user_email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="github-link" style="border:none; width: 100%; cursor: pointer;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
+    const menuBtn = document.getElementById('mobile-menu');
+    const navLinks2 = document.getElementById('nav-menu');
+
+    menuBtn.addEventListener('click', () => {
+    navLinks2.classList.toggle('active');
+    
+    // Optional: Animate hamburger to 'X'
+    menuBtn.classList.toggle('is-active');
+});
+
+// 1. Toggle menu and X-animation when the button is clicked
+menuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuBtn.classList.toggle('is-active');
+});
+
+// 2. NEW/UPDATED: Reset everything when any link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        // This closes the dropdown menu
+        navMenu.classList.remove('active');
+        
+        // This flips the 'X' back to the 'Hamburger'
+        menuBtn.classList.remove('is-active');
+    });
+});
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
 
@@ -239,7 +313,7 @@
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         body.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') toggleBtn.textContent = '☀️ Light Mode';
+        if (currentTheme === 'dark') toggleBtn.textContent = 'Light Mode';
     }
 
     toggleBtn.addEventListener('click', () => {
@@ -247,13 +321,51 @@
         if (body.getAttribute('data-theme') !== 'dark') {
             body.setAttribute('data-theme', 'dark');
             theme = 'dark';
-            toggleBtn.textContent = '☀️ Light Mode';
+            toggleBtn.textContent = 'Light Mode';
         } else {
             body.removeAttribute('data-theme');
-            toggleBtn.textContent = '🌙 Dark Mode';
+            toggleBtn.textContent = 'Night Mode';
         }
         // Save preference to local storage
         localStorage.setItem('theme', theme);
+        
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    // Toggle Menu
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked (useful for one-page sites)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+    (function(){
+        // Initialize with your Public Key from EmailJS dashboard
+        emailjs.init("NwCIWpEPWdAP0okyE"); 
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const btn = this.querySelector('button');
+        btn.textContent = 'Sending...';
+
+        // Use your Service ID and Template ID
+        emailjs.sendForm('service_45htqkv', 'template_2bax32e', this)
+            .then(function() {
+                alert('Message Sent Successfully!');
+                btn.textContent = 'Send Message';
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                alert('Failed to send message: ' + JSON.stringify(error));
+                btn.textContent = 'Send Message';
+            });
     });
 </script>
 </body>
