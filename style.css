@@ -342,10 +342,10 @@ section, header, footer {
 }
 
 .about-pic {
-    width: 600px;  /* Size of the circle */
-    height: 668px; /* Must be same as width */
+    width: 300px;  /* Size of the circle */
+    height: 334px; /* Must be same as width */
     border-radius: 10%; /* This creates the circle */
-    border: 4px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
